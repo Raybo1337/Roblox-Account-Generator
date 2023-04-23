@@ -43,21 +43,7 @@ class Utils:
 
     @staticmethod
     def get_rnd(b_month: int, b_year: int) -> int:
-        days = {
-            1: 31,
-            2: 29 if b_year % 4 == 0 and (b_year % 100 != 0 or b_year % 400 == 0) else 28,
-            3: 31,
-            4: 30,
-            5: 31,
-            6: 30,
-            7: 31,
-            8: 31,
-            9: 30,
-            10: 31,
-            11: 30,
-            12: 31
-        }
-        return random.randint(1, days[b_month])
+        return random.randint(1, monthrange(b_year, b_month)[1])
 
 
 class Generator():
